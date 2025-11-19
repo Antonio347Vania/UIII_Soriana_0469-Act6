@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="d-flex justify-content-between align-items-center mb-4">
+    <h2 class="text-success">Lista de Productos</h2>
+    <a href="{% url 'agregar_Productos' %}" class="btn btn-success">
+        <i class="bi bi-plus-lg"></i> Agregar Producto
+    </a>
+</div>
+
+<div class="card shadow-sm border-0">
+    <div class="card-body p-0">
+        <table class="table table-hover table-striped mb-0 align-middle">
+            <thead class="table-dark">
+                <tr>
+                    <th>Img</th>
+                    <th>Nombre</th>
+                    <th>Departamento</th>
+                    <th>Precio</th>
+                    <th>Stock</th>
+                    <th class="text-center">Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for p in productos %}
+                <tr>
+                    <td>
+                        {% if p.imagen %}
+                        <img src="{{ p.imagen.url }}" alt="{{ p.nombre_producto }}" style="width:50px;height:50px;object-fit:cover;">
+                        {% else %}
+                        <span class="text-muted"><i class="bi bi-image"></i></span>
+                        {% endif %}
+                    </td>
+                    <td>{{ p.nombre_producto }}</td>
+                    <td>{{ p.id_departamento.nombre_departamento }}</td>
+                    <td class="fw-bold text-success">${{ p.precio }}</td>
+                    <td>
+                        <span class="badge {% if p.stock_disponible < 5 %}bg-danger{% else %}bg-success{% endif %}">
+                            {{ p.stock_disponible }}
+                        </span>
+                    </td>
+                    <td class="text-center">
+                        <a href="{% url 'actualizar_Productos' p.id %}" class="btn btn-warning btn-sm me-1"><i class="bi bi-pencil"></i></a>
+                        <a href="{% url 'borrar_Productos' p.id %}" class="btn btn-danger btn-sm"><i class="bi bi-trash"></i></a>
+                    </td>
+                </tr>
+                {% empty %}
+                <tr><td colspan="6" class="text-center py-4">No hay productos registrados.</td></tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}

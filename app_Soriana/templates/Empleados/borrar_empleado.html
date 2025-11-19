@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="row justify-content-center mt-5">
+    <div class="col-md-6">
+        <div class="card border-danger shadow">
+            <div class="card-header bg-danger text-white text-center">
+                <h3><i class="bi bi-trash-fill"></i> Eliminar Empleado</h3>
+            </div>
+            <div class="card-body text-center">
+                <p class="lead">¿Estás seguro que deseas eliminar a este empleado?</p>
+                
+                <h4 class="fw-bold text-danger">{{ empleado.nombre }} {{ empleado.apellido }}</h4>
+                
+                <div class="mt-3 mb-4 text-muted">
+                    <p class="mb-1"><strong>Puesto:</strong> {{ empleado.puesto }}</p>
+                    <p class="mb-1"><strong>Fecha de contratación:</strong> {{ empleado.fecha_contratacion }}</p>
+                </div>
+
+                <!-- Mensaje de advertencia -->
+                <div class="alert alert-warning">
+                    <i class="bi bi-exclamation-triangle"></i> 
+                    Esta acción no se puede deshacer.
+                </div>
+                
+                <!-- El action vacío envía los datos a la misma URL -->
+                <form method="POST" action="">
+                    {% csrf_token %}
+                    <div class="d-flex justify-content-center gap-3 mt-4">
+                        <a href="{% url 'inicio_Empleados' %}" class="btn btn-secondary px-4">Cancelar</a>
+                        <button type="submit" class="btn btn-danger px-4">Sí, Eliminar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

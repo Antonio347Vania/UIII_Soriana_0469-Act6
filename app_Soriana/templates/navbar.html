@@ -1,0 +1,91 @@
+<nav class="navbar navbar-expand-lg navbar-soft shadow-sm">
+  <div class="container-fluid">
+    <a class="navbar-brand d-flex align-items-center" href="{% url 'inicio' %}">
+      <!-- Logo simple o icono -->
+      <i class="bi bi-shop window me-2 text-danger" style="font-size: 1.5rem;"></i>
+      <span>Sistema Soriana</span>
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navmenu">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    
+    <div class="collapse navbar-collapse" id="navmenu">
+      <ul class="navbar-nav ms-auto">
+        
+        <!-- Inicio -->
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'inicio' %}">
+            <i class="bi bi-house-door-fill text-secondary"></i> Inicio
+          </a>
+        </li>
+
+        <!-- Departamentos -->
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">
+            <i class="bi bi-building text-primary"></i> Departamentos
+          </a>
+          <ul class="dropdown-menu dropdown-menu-end">
+            <li><a class="dropdown-item" href="{% url 'agregar_Departamento' %}">Agregar Departamento</a></li>
+            <li><a class="dropdown-item" href="{% url 'inicio_Departamento' %}">Ver Departamentos</a></li>
+          </ul>
+        </li>
+
+        <!-- Productos -->
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">
+            <i class="bi bi-box-seam text-success"></i> Productos
+          </a>
+          <ul class="dropdown-menu dropdown-menu-end">
+            <li><a class="dropdown-item" href="{% url 'agregar_Productos' %}">Agregar Producto</a></li>
+            <li><a class="dropdown-item" href="{% url 'inicio_Productos' %}">Ver Productos</a></li>
+          </ul>
+        </li>
+
+        <!-- Empleados -->
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">
+            <i class="bi bi-people-fill text-info"></i> Empleados
+          </a>
+          <ul class="dropdown-menu dropdown-menu-end">
+            <li><a class="dropdown-item" href="{% url 'agregar_Empleados' %}">Agregar Empleado</a></li>
+            <li><a class="dropdown-item" href="{% url 'inicio_Empleados' %}">Ver Empleados</a></li>
+          </ul>
+        </li>
+
+        <!-- Clientes -->
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">
+            <i class="bi bi-person-badge text-warning"></i> Clientes
+          </a>
+          <ul class="dropdown-menu dropdown-menu-end">
+            <li><a class="dropdown-item" href="{% url 'agregar_Clientes' %}">Agregar Cliente</a></li>
+            <li><a class="dropdown-item" href="{% url 'inicio_Clientes' %}">Ver Clientes</a></li>
+          </ul>
+        </li>
+
+        <!-- Pedidos -->
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">
+            <i class="bi bi-cart-check-fill text-danger"></i> Pedidos
+          </a>
+          <ul class="dropdown-menu dropdown-menu-end">
+            <li><a class="dropdown-item" href="{% url 'agregar_Pedidos' %}">Agregar Pedido</a></li>
+            <li><a class="dropdown-item" href="{% url 'inicio_Pedidos' %}">Ver Pedidos</a></li>
+          </ul>
+        </li>
+
+        <!-- Ventas -->
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">
+            <i class="bi bi-cash-coin text-dark"></i> Ventas
+          </a>
+          <ul class="dropdown-menu dropdown-menu-end">
+            <li><a class="dropdown-item" href="{% url 'agregar_Ventas' %}">Agregar Venta</a></li>
+            <li><a class="dropdown-item" href="{% url 'inicio_Ventas' %}">Ver Ventas</a></li>
+          </ul>
+        </li>
+
+      </ul>
+    </div>
+  </div>
+</nav>
